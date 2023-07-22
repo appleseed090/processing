@@ -17,8 +17,9 @@ void draw() {
   background(0);
   menger(0, 0, width, NUMITERS);
   textSize(50);
+  textAlign(CENTER);
   fill(0, 150, 150);
-  text("Number of iterations: " + NUMITERS, width - 550, height - 50);
+  text("Number of\niterations: " + NUMITERS, width / 2, height / 2 - 25);
 }
 
 void keyPressed() {
