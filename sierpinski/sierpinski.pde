@@ -26,7 +26,7 @@ void draw() {
 
 void keyPressed() {
   if (keyCode == UP) {
-    NUMITERS = min(11, NUMITERS + 1);
+    NUMITERS = min(10, NUMITERS + 1);
   } else if (keyCode == DOWN) {
     NUMITERS = max(1, NUMITERS - 1);
   }
