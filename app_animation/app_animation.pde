@@ -54,9 +54,6 @@ void draw() {
   }
 }
 
-
-// TODO: Make the circle into a class
-
 class Circle {
   float minDiam = width / 8;
   float maxDiam = minDiam * 1.25;
