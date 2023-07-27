@@ -28,7 +28,6 @@ void setup() {
 }
 
 void draw() {
-  background(155);
   noStroke();
   if (!gameOver) {
     drawBoard();
