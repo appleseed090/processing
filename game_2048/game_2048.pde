@@ -1,7 +1,7 @@
 import java.util.*;
 
 final int SIZE = 4;
-float squareSize = 800 / SIZE;
+float squareSize = 600 / SIZE;
 float text_size = squareSize / 3;
 int[][] grid = new int[SIZE][SIZE];
 boolean moved = false;  // check if numbers have actually moved
@@ -19,23 +19,20 @@ int[][] rgbValues = {{238,228,218},  // 2
                      {237,194,46}    // 2048
                     };
 int numColors = rgbValues.length;
+int score = 0;
 
 void setup() {
-  size(800, 800);
+  size(600, 800);
   textSize(50);
   addNumber();
   addNumber();
 }
 
 void draw() {
+  background(0);
   noStroke();
   if (!gameOver) {
     drawBoard();
-    //for (int i = 0; i < SIZE; i++) {
-    //  for (int j = 0; j < SIZE; j++) {
-    //    text(grid[i][j], j * width/SIZE, (i + 1) * height/SIZE);
-    //  }
-    //}
   } else {
     drawKillscreen();
   }
@@ -82,12 +79,14 @@ void drawBoard() {
       translate(-(j + 0.5) * squareSize, -(i + 0.5) * squareSize);
     }
   }
+  fill(200);
+  text("Score: " + score, width/2, height - 100);
 }
 
 void drawKillscreen() {
   textAlign(CENTER, CENTER);
   textSize(80);
-  text("GAME OVER", width / 2, height/2);
+  text("GAME OVER\nScore: " + score, width / 2, height/2);
 }
 
 void keyPressed() {
@@ -161,6 +160,7 @@ void mergeAndMove(int x, int y, int dx, int dy) {
         } else if (line[i] == line[j] && !merged[i]) {
           /* if i & j match (and are adjacent/separated by only 0's),
              then combine them and multiply the resulting value by 2 */
+          score += line[i] * 2;
           line[i] *= 2;
           line[j] = 0;
           merged[i] = true;
