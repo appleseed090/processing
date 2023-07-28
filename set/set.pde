@@ -2,6 +2,8 @@
 A card in Set has 3 properties: shape, color, and number.
 */
 
+int score = 0;
+
 class Card {
   String shape;  // shape
   String c;  // color
@@ -59,10 +61,11 @@ void drawCard(Card card) {
   fill(100);
   rect(cardX, cardY, cardSize, cardSize);
   
-  int text_size = 100;
+  int text_size = 80;
   fill(255);
   textSize(text_size);
-  text("Score: 42", width / 2 - 200, height-10);
+  textAlign(CENTER, CENTER);
+  text("Score: " + score, width / 2, height-50);
 }
 
 void drawShapes(Card card) {
